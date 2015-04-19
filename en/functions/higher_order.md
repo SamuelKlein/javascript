@@ -35,7 +35,7 @@ map(double, [5,6,7]) // => [10, 12, 14]
 
 The functions in the above example are simple. However, when passed as arguments to other functions, they can be composed in unforeseen ways to build more complex functions.
 
-For example, if we notice that we use the invocations `map(add_2, ...)` and `map(double, ...)` very often in our code, we could decide we want to create two special-purpse list processing functions that have the desired operation baked into them. Using function composition, we could do this as follows:
+For example, if we notice that we use the invocations `map(add_2, ...)` and `map(double, ...)` very often in our code, we could decide we want to create two special-purpose list processing functions that have the desired operation baked into them. Using function composition, we could do this as follows:
 
 ```javascript
 process_add_2 = function(list) {
@@ -88,11 +88,9 @@ double(3); // => 6
 triple(3); // => 9
 ```
 
----
-
+{% exercise %}
 Define a function named `negate` that takes `add1` as argument and returns a function, that returns the negation of the value returned by `add1`. (Things get a bit more complicated ;) )
-
-```js
+{% initial %}
 var add1 = function (x) {
     return x + 1;
 };
@@ -105,9 +103,7 @@ var negate = function(func) {
 // Because (5+1) * -1 = -6
 negate(add1)(5);
 
-```
-
-```js
+{% solution %}
 var add1 = function (x) {
     return x + 1;
 }
@@ -119,10 +115,6 @@ var negate = function(func) {
 }
 
 negate(add1)(5);
-```
-
-```js
+{% validation %}
 assert(negate(add1)(5) === -6);
-```
-
----
+{% endexercise %}
